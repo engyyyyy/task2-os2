@@ -13,5 +13,10 @@ jobs:
 
          - name: 'Login to Docker hup'
            run: docker login --username ${{ secrets.DOCKER_ENGYYYY }} --password ${{ secrets.DOCKER_TOKEN }}
+         - name: 'Building docker image'
+           run: docker build -t ${{ secrets.DOCKER_ENGYYYY }}/taskimage .
+
+         - name: 'pushing to docker hup'
+           run: docker push ${{ secrets.DOCKER_ENGYYYY }}/taskimage
 
 
